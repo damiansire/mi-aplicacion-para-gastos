@@ -1,10 +1,10 @@
 const form = document.getElementById("transactionForm");
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", function(event) {
     event.preventDefault();
     let transactionFormData = new FormData(form);
     let transactionObj = convertFormDataToTransactionObj(transactionFormData)
-    // si es valido el formulario, se guarda
+        // si es valido el formulario, se guarda
     if (isValidTransactionForm(transactionObj)) {
         saveTransactionObj(transactionObj)
         insertRowInTransactionTable(transactionObj)
@@ -55,15 +55,30 @@ function isValidTransactionForm(transactionObj) {
     return isValidForm;
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function(event) {
     draw_category()
-    let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+        //Obtiene desde el local storage la informacion de las transaccion
+        //let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
+        //Obtiene las transacciones desde el servidor
+    fetch("http://localhost:3000/transactions").then(res => res.json()).then(data => mostrarEnPantallaArrayDeTransaccion(data))
+
+})
+
+function mostrarEnPantallaArrayDeTransaccion(transactionObjArr) {
     transactionObjArr.forEach(
-        function (arrayElement) {
+        function(arrayElement) {
             insertRowInTransactionTable(arrayElement)
         }
     )
-})
+}
+
+function getTransactionsFromApi() {
+    //Llama al backend 
+    //Obtene las transacciones 
+    //y guardalas en un array
+    const allTransactions = fetch("http://localhost:3000/transactions");
+    return allTransactions;
+}
 
 function getNewTransactionId() {
     let lastTransactionId = localStorage.getItem("lastTransactionId") || "-1";
