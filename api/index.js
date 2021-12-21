@@ -8,39 +8,47 @@ const port = 3000;
 
 const transactions = [
   {
-    transactionType: "Inversion",
-    transactionDescription: "REGALO PARA SUBS",
-    transactionAmount: "200000",
-    transactionCategory: "REGALO",
+    transactionType: "Egreso",
+    transactionDescription:
+      "2,2 kg Manzana Roja marca: las Delicoas en tienda inglesa",
+    transactionAmount: "4.75",
+    transactionCategory: "Comida",
     transactionId: 1,
   },
   {
-    transactionType: "Ingreso",
-    transactionDescription: "Alfajores",
+    transactionType: "Egreso",
+    transactionDescription: "1kg Banana marca: El Ecuador en tienda inglesa",
     transactionAmount: "20",
     transactionCategory: "Comida",
     transactionId: 5,
   },
   {
     transactionType: "Egreso",
-    transactionDescription: "Alquiler",
-    transactionAmount: "5000",
-    transactionCategory: "Alquiler",
+    transactionDescription: "1kg Manzana roja marca: el emigrante en superToti",
+    transactionAmount: "0.60",
+    transactionCategory: "Comida",
     transactionId: 6,
   },
   {
     transactionType: "Egreso",
-    transactionDescription: "Alquiler",
-    transactionAmount: "5000",
-    transactionCategory: "Alquiler",
+    transactionDescription: "Alfajor dulce de leche agua helada",
+    transactionAmount: "1",
+    transactionCategory: "Antojos",
     transactionId: 7,
   },
   {
     transactionType: "Egreso",
-    transactionDescription: "Comida",
-    transactionAmount: "500",
-    transactionCategory: "Alquiler",
+    transactionDescription: "Me tire en paracaidas",
+    transactionAmount: "800",
+    transactionCategory: "Diversion",
     transactionId: 8,
+  },
+  {
+    transactionType: "Egreso",
+    transactionDescription: "Una fruta parecida a una Manzana redondita",
+    transactionAmount: "20",
+    transactionCategory: "Comida",
+    transactionId: 9,
   },
 ];
 
