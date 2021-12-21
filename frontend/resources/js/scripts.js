@@ -1,5 +1,7 @@
 const form = document.getElementById("transactionForm");
 
+var todasLasTransacciones;
+
 form.addEventListener("submit", function (event) {
   event.preventDefault();
   let transactionFormData = new FormData(form);
@@ -61,12 +63,13 @@ function isValidTransactionForm(transactionObj) {
 
 document.addEventListener("DOMContentLoaded", function (event) {
   draw_category();
-  //Obtiene desde el local storage la informacion de las transaccion
-  //let transactionObjArr = JSON.parse(localStorage.getItem("transactionData"))
   //Obtiene las transacciones desde el servidor
   fetch("http://localhost:3000/transactions")
     .then((res) => res.json())
-    .then((data) => mostrarEnPantallaArrayDeTransaccion(data));
+    .then((data) => {
+      mostrarEnPantallaArrayDeTransaccion(data);
+      todasLasTransacciones = data;
+    });
 });
 
 function mostrarEnPantallaArrayDeTransaccion(transactionObjArr) {
